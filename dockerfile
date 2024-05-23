@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim
-WORKDIR /app
-COPY target/demo-0.0.1-SNAPSHOT.jar /app/demo.jar
-ENTRYPOINT ["java", "-jar", "/app/demo.jar"]
+FROM openjdk:17
+EXPOSE 8080
+ADD target/demo-0.0.1-SNAPSHOT.jar demo.jar
+ENTRYPOINT ["java", "-jar", "/demo.jar"]

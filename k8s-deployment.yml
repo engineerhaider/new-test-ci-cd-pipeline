@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapplication-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myapplication
+  template:
+    metadata:
+      labels:
+        app: myapplication
+    spec:
+      containers:
+      - name: myapplication
+        image: engineerhaider/myapplication:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: myregistrykey
